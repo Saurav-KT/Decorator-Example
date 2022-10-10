@@ -1,1 +1,1 @@
-# Access private data member through class object
+# Python Decorator Example 

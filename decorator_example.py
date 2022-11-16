@@ -11,7 +11,9 @@ def ordinary():
     print("I am ordinary")
 
 
+# call decorator function
 # ordinary()
+
 # In the example shown below, make_pretty() is a decorator. In the assignment step. The function ordinary() got decorated and the returned function was given the name pretty.
 # preety = make_preety(ordinary)
 # preety()

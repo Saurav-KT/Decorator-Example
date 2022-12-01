@@ -11,7 +11,7 @@ def ordinary():
     print("I am ordinary")
 
 
-# call decorator function
+# call function
 # ordinary()
 
 # In the example shown below, make_pretty() is a decorator. In the assignment step. The function ordinary() got decorated and the returned function was given the name pretty.
@@ -20,33 +20,21 @@ def ordinary():
 
 
 # Decorator with parameter example
+def check_param_type(func):
+    def validatedatatype(param1, param2):
+        if type(param1) is not int or type(param2) is not int:
+            print("Invalid params")
+            return False
+        elif param1 <= 0 or param2 <= 0:
+            print("Invalid params")
+        else:
+            return func(param1, param2)
 
-def smart_division(func):
-    def inner(a, b):
-        # Put here the code you want to be executed BEFORE the original function is called
-        # print("I am going to divide", a, "and", b)
-        if b == 0:
-            print("Aahh can't divide")
-            return
-        # Call the function here (using parentheses)
-        return func(a, b)
-        # Put here the code you want to be executed AFTER the original function is called
-
-    return inner
+    return validatedatatype
 
 
-# General decorators that work with any number of parameters
+@check_param_type
+def main_method(param1,param2):
+    print(param1,param2)
 
-def works_for_all(func):
-    def inner(*args, **kwargs):
-        print("I can decorate any function")
-        return func(*args, **kwargs)
-
-    return inner
-
-
-@smart_division
-def divide(a, b):
-    return a / b
-
-# print(divide(10, 0, 1))
+# print(divide(10, 0))
